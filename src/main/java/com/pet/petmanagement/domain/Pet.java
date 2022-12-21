@@ -1,5 +1,6 @@
 package com.pet.petmanagement.domain;
 
+import com.pet.petmanagement.domain.user.User;
 import lombok.Data;
 
 import javax.persistence.*;

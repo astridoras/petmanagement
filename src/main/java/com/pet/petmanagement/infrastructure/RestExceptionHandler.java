@@ -1,8 +1,8 @@
 package com.pet.petmanagement.infrastructure;
 
-import ee.valiit.back_vali_kuusk.infrastructure.error.ApiError;
-import ee.valiit.back_vali_kuusk.infrastructure.exception.BusinessException;
-import ee.valiit.back_vali_kuusk.infrastructure.exception.DataNotFoundException;
+import com.pet.petmanagement.infrastructure.error.ApiError;
+import com.pet.petmanagement.infrastructure.exception.BusinessException;
+import com.pet.petmanagement.infrastructure.exception.DataNotFoundException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
