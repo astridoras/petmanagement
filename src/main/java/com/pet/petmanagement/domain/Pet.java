@@ -1,4 +1,4 @@
-package com.pet.petmanagement;
+package com.pet.petmanagement.domain;
 
 import lombok.Data;
 

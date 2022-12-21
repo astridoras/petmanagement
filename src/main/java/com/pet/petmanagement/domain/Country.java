@@ -1,4 +1,4 @@
-package com.pet.petmanagement;
+package com.pet.petmanagement.domain;
 
 import lombok.Data;
 
@@ -8,8 +8,8 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
-@Table(name = "type")
-public class Type {
+@Table(name = "country")
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
