@@ -1,5 +1,8 @@
-package com.pet.petmanagement.domain;
+package com.pet.petmanagement.domain.pet;
 
+import com.pet.petmanagement.domain.color.Color;
+import com.pet.petmanagement.domain.country.Country;
+import com.pet.petmanagement.domain.type.Type;
 import com.pet.petmanagement.domain.user.User;
 import lombok.Data;
 
@@ -35,6 +38,19 @@ public class Pet {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "type_id", nullable = false)
+    private Type type;
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public Integer getId() {
         return id;

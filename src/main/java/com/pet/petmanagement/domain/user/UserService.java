@@ -11,12 +11,18 @@ public class UserService {
 
     @Resource
     private UserRepository userRepository;
+
     public User getExistingUser(String username, String password) {
         Optional<User> userOptional = userRepository.findBy(username, password);
         Validation.validateUserCredentials(userOptional);
         User user = userOptional.get();
 
         return user;
+
+    }
+
+    public User findUserBy(Integer userId) {
+      return userRepository.findById(userId).get();
 
     }
 }

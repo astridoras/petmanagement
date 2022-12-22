@@ -1,4 +1,4 @@
-package com.pet.petmanagement.domain;
+package com.pet.petmanagement.domain.color;
 
 import lombok.Data;
 
