@@ -50,12 +50,21 @@ public class ManagementService {
         pet.setCountry(country);
 
         petService.save(pet);
-
-
-
-
-
-
-
     }
+
+    public void editPetData(Integer petId, UpdatePetRequest updatePet) {
+        Pet pet = petService.findById(petId);
+        Type type = typeService.findTypeBy(updatePet.getTypeId());
+        Color color = colorService.findColorBy(updatePet.getColorId());
+        Country country = countryService.findCountryBy(updatePet.getCountryId());
+
+        pet.setName(updatePet.getName());
+        pet.setCode(updatePet.getCode());
+        pet.setType(type);
+        pet.setColor(color);
+        pet.setCountry(country);
+
+        petService.save(pet);
+    }
+
 }

@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-12-21 13:25:01.267
+-- Last modification date: 2022-12-22 19:27:37.186
 
 -- tables
 -- Table: color
@@ -18,13 +18,14 @@ CREATE TABLE country (
 
 -- Table: pet
 CREATE TABLE pet (
-                     id_code serial  NOT NULL,
+                     id serial  NOT NULL,
                      name varchar(255)  NOT NULL,
+                     code varchar(255)  NOT NULL,
                      user_id int  NOT NULL,
                      type_id int  NOT NULL,
                      color_id int  NOT NULL,
                      country_id int  NOT NULL,
-                     CONSTRAINT pet_pk PRIMARY KEY (id_code)
+                     CONSTRAINT pet_pk PRIMARY KEY (id)
 );
 
 -- Table: type

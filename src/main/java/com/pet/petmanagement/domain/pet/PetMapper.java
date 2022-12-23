@@ -7,6 +7,7 @@ import org.mapstruct.*;
 public interface PetMapper {
     @Mapping(source = "petId", target = "id")
     @Mapping(source = "petName", target = "name")
+    @Mapping(source = "petCode", target = "code")
     @Mapping(source = "userId", target = "user.id")
     @Mapping(source = "colorId", target = "color.id")
     @Mapping(source = "colorName", target = "color.name")

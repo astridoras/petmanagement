@@ -13,4 +13,8 @@ public class PetService {
     public void save(Pet pet) {
         petRepository.save(pet);
     }
+
+    public Pet findById(Integer petId) {
+       return petRepository.findById(petId).get();
+    }
 }
