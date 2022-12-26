@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdatePetRequest implements Serializable {
+public class UpdatePetJson implements Serializable {
     @Size(max = 255)
     @NotNull
     private String name;

@@ -1,18 +1,24 @@
 package com.pet.petmanagement.domain.pet;
 
-import com.pet.petmanagement.business.login.NewPetRequest;
+import com.pet.petmanagement.business.login.CreatePetJson;
 import org.mapstruct.*;
+
+import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface PetMapper {
-    @Mapping(source = "petId", target = "id")
     @Mapping(source = "petName", target = "name")
     @Mapping(source = "petCode", target = "code")
-    @Mapping(source = "userId", target = "user.id")
-    @Mapping(source = "colorId", target = "color.id")
-    @Mapping(source = "colorName", target = "color.name")
-    @Mapping(source = "countryId", target = "country.id")
-    @Mapping(source = "countryName", target = "country.name")
-    Pet newPetRequestToPet(NewPetRequest newPetRequest);
+    @Mapping(source = "color", target = "color")
+    @Mapping(source = "country", target = "country")
+    @Mapping(source = "type",target = "type")
+    Pet jsonToPet(CreatePetJson createPetJson);
 
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "code", target = "code")
+    @Mapping(source = "color", target = "color")
+    @Mapping(source = "country", target = "country")
+    @Mapping(source = "type",target = "type")
+    PetResponseJson petToPetResponseJson(Pet pet);
+    List<PetResponseJson> petsToPetResponseJson (List<Pet>pets);
 }

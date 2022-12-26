@@ -15,25 +15,20 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewPetRequest implements Serializable {
-    private Integer petId;
+public class CreatePetJson implements Serializable {
     @Size(max = 255)
     @NotNull
     private String petName;
     @Size(max = 255)
     @NotNull
-    private Integer petCode;
-    private Integer userId;
-    private Integer typeId;
+    private String petCode;
     @Size(max = 255)
     @NotNull
-    private String typeName;
-    private Integer colorId;
+    private String type;
     @Size(max = 255)
     @NotNull
-    private String colorName;
-    private Integer countryId;
+    private String color;
     @Size(max = 255)
     @NotNull
-    private String countryName;
+    private String country;
 }

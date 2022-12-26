@@ -14,7 +14,6 @@ public class LoginService {
 
 
     public User login(String username, String password) {
-        User existingUser = userService.getExistingUser(username, password);
-        return existingUser;
+        return userService.getExistingUser(username, password);
     }
 }

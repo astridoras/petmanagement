@@ -14,16 +14,13 @@ import javax.annotation.Resource;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class LoginController {
 
-@Resource
+    @Resource
     private LoginService loginService;
 
     @GetMapping("/login")
     @Operation(summary = "Login to user account")
-    public User login (@RequestParam String username, @RequestParam String password) {
-        User user = loginService.login(username, password);
-        return user;
-
-
+    public User login(@RequestParam String username, @RequestParam String password) {
+        return loginService.login(username, password);
     }
 
 }
