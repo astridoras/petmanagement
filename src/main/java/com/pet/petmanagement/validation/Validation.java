@@ -16,27 +16,27 @@ public class Validation {
     }
 
     public static void validateCreatePetJson(CreatePetJson json) {
-        if (json.getPetName().isEmpty()) {
+        if (json.getPetName() == null || json.getPetName().isEmpty()) {
             throw new BusinessException(
                     PetError.NAME_MISSING.getMessage(),
                     PetError.NAME_MISSING.getErrorCode());
         }
-        if (json.getPetCode().isEmpty()) {
+        if (json.getPetCode() == null || json.getPetCode().isEmpty()) {
             throw new BusinessException(
                     PetError.CODE_MISSING.getMessage(),
                     PetError.CODE_MISSING.getErrorCode());
         }
-        if (json.getType().isEmpty()) {
+        if (json.getType() == null || json.getType().isEmpty()) {
             throw new BusinessException(
                     PetError.TYPE_MISSING.getMessage(),
                     PetError.TYPE_MISSING.getErrorCode());
         }
-        if (json.getColor().isEmpty()) {
+        if (json.getColor() == null || json.getColor().isEmpty()) {
             throw new BusinessException(
                     PetError.COLOR_MISSING.getMessage(),
                     PetError.COLOR_MISSING.getErrorCode());
         }
-        if (json.getCountry().isEmpty()) {
+        if (json.getCountry() == null || json.getCountry().isEmpty()) {
             throw new BusinessException(
                     PetError.COUNTRY_MISSING.getMessage(),
                     PetError.COUNTRY_MISSING.getErrorCode());
