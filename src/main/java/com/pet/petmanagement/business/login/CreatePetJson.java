@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -17,18 +19,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class CreatePetJson implements Serializable {
     @Size(max = 255)
-    @NotNull
+    @NotBlank
     private String petName;
-    @Size(max = 255)
-    @NotNull
+    @Size(min=6, max = 255)
+    @NotBlank
     private String petCode;
     @Size(max = 255)
-    @NotNull
+    @NotBlank
     private String type;
     @Size(max = 255)
-    @NotNull
+    @NotBlank
     private String color;
     @Size(max = 255)
-    @NotNull
+    @NotBlank
     private String country;
 }

@@ -40,7 +40,7 @@ class ManagementServiceIntegrationTest {
     void success_addNewPet() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
@@ -56,14 +56,14 @@ class ManagementServiceIntegrationTest {
         assertEquals("Sassu", allPetsByUserId.get(0).getName());
         assertEquals("DOG", allPetsByUserId.get(0).getType());
         assertEquals("BLACK", allPetsByUserId.get(0).getColor());
-        assertEquals("123", allPetsByUserId.get(0).getCode());
+        assertEquals("123456", allPetsByUserId.get(0).getCode());
         assertEquals(1, allPetsByUserId.get(0).getUser().getId());
     }
 
     @Test
     void unsuccess_addNewPetWithMissingName() throws Exception {
         CreatePetJson json = new CreatePetJson();
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
@@ -71,17 +71,17 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
-
     }
+
     @Test
     void unsuccess_addNewPetWithNotExistingUser() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
@@ -89,17 +89,17 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 10)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
-
     }
 
     @Test
     void unsuccess_addNewPetWithEmptyName() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
@@ -107,13 +107,30 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
 
     }
 
+    @Test
+    void unsuccess_addNewPetWithCodeOnlySpaces() throws Exception {
+        CreatePetJson json = new CreatePetJson();
+        json.setPetName("Sassu");
+        json.setPetCode("      ");
+        json.setType("DOG");
+        json.setColor("BLACK");
+        json.setCountry("ESTONIA");
+
+        mockMvc.perform(post("/users/{userId}/pets", 1)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(json)))
+                .andExpect(status().is4xxClientError());
+
+        List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
+        assertTrue(allPetsByUserId.isEmpty());
+    }
     @Test
     void unsuccess_addNewPetWithMissingCode() throws Exception {
         CreatePetJson json = new CreatePetJson();
@@ -125,7 +142,7 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -144,7 +161,26 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
+
+        List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
+        assertTrue(allPetsByUserId.isEmpty());
+
+    }
+
+    @Test
+    void unsuccess_addNewPetWithTooShortCode() throws Exception {
+        CreatePetJson json = new CreatePetJson();
+        json.setPetName("Sassu");
+        json.setPetCode("123");
+        json.setType("DOG");
+        json.setColor("BLACK");
+        json.setCountry("ESTONIA");
+
+        mockMvc.perform(post("/users/{userId}/pets", 1)
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(json)))
+                .andExpect(status().isBadRequest());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -155,14 +191,14 @@ class ManagementServiceIntegrationTest {
     void unsuccess_addNewPetWithMissingType() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
 
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -173,7 +209,7 @@ class ManagementServiceIntegrationTest {
     void unsuccess_addNewPetWithEmptyType() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("");
         json.setColor("BLACK");
         json.setCountry("ESTONIA");
@@ -181,7 +217,7 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -192,25 +228,26 @@ class ManagementServiceIntegrationTest {
     void unsuccess_addNewPetWithMissingColor() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setCountry("ESTONIA");
 
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
 
     }
 
+
     @Test
     void unsuccess_addNewPetWithEmptyColor() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("");
         json.setCountry("ESTONIA");
@@ -218,7 +255,7 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -228,14 +265,14 @@ class ManagementServiceIntegrationTest {
     void unsuccess_addNewPetWithMissingCountry() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
 
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());
@@ -246,7 +283,7 @@ class ManagementServiceIntegrationTest {
     void unsuccess_addNewPetWithEmptyCountry() throws Exception {
         CreatePetJson json = new CreatePetJson();
         json.setPetName("Sassu");
-        json.setPetCode("123");
+        json.setPetCode("123456");
         json.setType("DOG");
         json.setColor("BLACK");
         json.setCountry("");
@@ -254,7 +291,7 @@ class ManagementServiceIntegrationTest {
         mockMvc.perform(post("/users/{userId}/pets", 1)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(json)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is4xxClientError());
 
         List<Pet> allPetsByUserId = managementService.getAllPetsByUserId(1);
         assertTrue(allPetsByUserId.isEmpty());

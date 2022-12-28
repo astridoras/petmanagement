@@ -24,7 +24,7 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Size(max = 255)
     @NotNull

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PetRepository extends JpaRepository<Pet, Long> {
+public interface PetRepository extends JpaRepository<Pet, Integer> {
     @Query("select p from Pet p where p.user.id = ?1")
     List<Pet> findAllUserPetsByUserId(Integer id);
 

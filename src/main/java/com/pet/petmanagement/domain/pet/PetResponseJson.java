@@ -15,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PetResponseJson implements Serializable {
-    private Long id;
+    private Integer id;
     @Size(max = 255)
     @NotNull
     private String name;
