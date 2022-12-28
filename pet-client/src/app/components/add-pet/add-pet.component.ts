@@ -49,7 +49,10 @@ export class AddPetComponent implements OnInit {
     }
     this.service.create(this.userId as string, this.petForm.value as PetJson).subscribe();
     this.submitted = false;
-    this.router.navigate([`/users/${this.userId}/pets`]);
+    this.router.navigate([`/users/${this.userId}/pets`])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }
 
