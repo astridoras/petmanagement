@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 //TODO solve CORS this is temp solution!
@@ -22,7 +23,7 @@ public class PetController {
 
     @PostMapping("users/{userId}/pets")
     @Operation(summary = "Add new pet to user")
-    public void addNewPet(@PathVariable Integer userId, @RequestBody CreatePetJson json) {
+    public void addNewPet(@PathVariable Integer userId, @RequestBody @Valid CreatePetJson json) {
         managementService.addNewPet(userId, json);
     }
 
