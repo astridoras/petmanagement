@@ -2,8 +2,8 @@ package com.pet.petmanagement;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.pet.petmanagement.business.login.CreatePetJson;
-import com.pet.petmanagement.business.login.ManagementService;
+import com.pet.petmanagement.business.pet.CreatePetJson;
+import com.pet.petmanagement.business.pet.ManagementService;
 import com.pet.petmanagement.domain.pet.Pet;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

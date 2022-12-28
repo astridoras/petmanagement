@@ -1,6 +1,6 @@
 package com.pet.petmanagement.domain.pet;
 
-import com.pet.petmanagement.business.login.CreatePetJson;
+import com.pet.petmanagement.business.pet.CreatePetJson;
 import org.mapstruct.*;
 
 import java.util.List;

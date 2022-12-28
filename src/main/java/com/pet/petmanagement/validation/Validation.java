@@ -1,6 +1,6 @@
 package com.pet.petmanagement.validation;
 
-import com.pet.petmanagement.business.login.CreatePetJson;
+import com.pet.petmanagement.business.pet.CreatePetJson;
 import com.pet.petmanagement.domain.user.User;
 import com.pet.petmanagement.infrastructure.exception.BusinessException;
 
