@@ -46,5 +46,5 @@ Tests are located src/test/java/com/pet/petmanagement/ManagementServiceIntegrati
 * FE error handling
 * User password in DB should be hashed (now displayed as entered)
 * More tests for back-end
-* Tests for front-end need to fixed
+* Tests for front-end need to be fixed
 * Add method that validates that pets with same type and code can not be added to avoid same pet adding
