@@ -21,9 +21,7 @@ npm start
 ```
 
 ## Running BE application:
-* run gradle
-* run gradle build 
-* For running BE run with IDE src\main\java\com\pet\petmanagement\PetmanagementApplication.java and run
+Run gradle bootRun from the project root in CLI or run src/test/java/com/pet/petmanagement/ManagementServiceIntegrationTest.java
 
 * The application is served on port 8080:
   http://localhost:8080/
