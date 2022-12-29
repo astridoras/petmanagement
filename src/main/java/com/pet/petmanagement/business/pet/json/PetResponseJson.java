@@ -1,4 +1,4 @@
-package com.pet.petmanagement.business.pet;
+package com.pet.petmanagement.business.pet.json;
 
 import com.pet.petmanagement.domain.pet.Pet;
 import lombok.AllArgsConstructor;
@@ -15,14 +15,21 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdatePetJson implements Serializable {
+public class PetResponseJson implements Serializable {
+    private Integer id;
     @Size(max = 255)
     @NotNull
     private String name;
     @Size(max = 255)
     @NotNull
     private String code;
-    private Integer colorId;
-    private Integer countryId;
-    private Integer typeId;
+    @Size(max = 255)
+    @NotNull
+    private String type;
+    @Size(max = 255)
+    @NotNull
+    private String color;
+    @Size(max = 255)
+    @NotNull
+    private String country;
 }

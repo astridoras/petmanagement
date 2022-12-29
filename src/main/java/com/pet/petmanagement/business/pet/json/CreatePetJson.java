@@ -1,4 +1,4 @@
-package com.pet.petmanagement.business.pet;
+package com.pet.petmanagement.business.pet.json;
 
 import com.pet.petmanagement.domain.pet.Pet;
 import lombok.AllArgsConstructor;
