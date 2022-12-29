@@ -7,16 +7,14 @@ import java.util.List;
 
 @Service
 public class TypeService {
-
     @Resource
     private TypeRepository typeRepository;
 
     public Type findTypeByName(String typeName) {
-       return typeRepository.findByName(typeName);
+        return typeRepository.findByName(typeName);
     }
+
     public List<Type> findAllTypes() {
-       return typeRepository.findAll();
+        return typeRepository.findAll();
     }
-
-
 }

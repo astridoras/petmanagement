@@ -11,10 +11,6 @@ public class CountryService {
     @Resource
     private CountryRepository countryRepository;
 
-
-    public Country findCountryBy(Integer countryId) {
-       return countryRepository.findById(countryId).get();
-    }
     public List<Country> findAllCountries() {
        return countryRepository.findAll();
     }

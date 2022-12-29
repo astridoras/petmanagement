@@ -32,10 +32,4 @@ public class PetController {
         List<Pet> pets = managementService.getAllPetsByUserId(userId);
         return petMapper.petsToPetResponseJson(pets);
     }
-
-  /*  @PutMapping("users/{userId}/pets/{petId}")
-    @Operation(summary = "Update pet data parameters")
-    public void editPetData(@PathVariable Integer userId, @PathVariable Long petId, @RequestBody UpdatePetJson json) {
-        managementService.editPetData(petId, json);
-    }*/
 }

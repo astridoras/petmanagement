@@ -8,10 +8,8 @@ import javax.annotation.Resource;
 
 @Service
 public class LoginService {
-
 @Resource
     private UserService userService;
-
 
     public User login(String username, String password) {
         return userService.getExistingUser(username, password);

@@ -15,10 +15,6 @@ public class PetService {
         petRepository.save(pet);
     }
 
-    public Pet findById(Integer petId) {
-       return petRepository.findById(petId).get();
-    }
-
     public List<Pet> findUserPetsByUserId(Integer userId) {
         return petRepository.findAllUserPetsByUserId(userId);
     }

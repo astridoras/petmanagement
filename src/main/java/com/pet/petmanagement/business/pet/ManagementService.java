@@ -85,26 +85,10 @@ public class ManagementService {
             throw new BusinessException(
                     PetError.TYPE_NOT_FOUND.getMessage(),
                     PetError.TYPE_NOT_FOUND.getErrorCode());
-
         }
     }
 
     public List<Pet> getAllPetsByUserId(Integer userId) {
         return petService.findUserPetsByUserId(userId);
     }
-
-//    public void editPetData(Long petId, UpdatePetJson updatePet) {
-//        Pet pet = petService.findById(petId);
-////        Type type = typeService.findTypeByName(updatePet.getTypeId());
-//        Color color = colorService.findColorBy(updatePet.getColorId());
-//        Country country = countryService.findCountryBy(updatePet.getCountryId());
-//
-//        pet.setName(updatePet.getName());
-//        pet.setCode(updatePet.getCode());
-//        //TODO: set type, color, country
-////        pet.setType(type);
-////        pet.setColor(color);
-////        pet.setCountry(country);
-//        petService.save(pet);
-//    }
 }

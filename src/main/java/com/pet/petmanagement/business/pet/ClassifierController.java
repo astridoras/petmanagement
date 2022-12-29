@@ -30,13 +30,10 @@ public class ClassifierController {
     private ColorService colorService;
     @Resource
     private TypeService typeService;
-
     @Resource
     private ColorMapper colorMapper;
-
     @Resource
     private CountryMapper countryMapper;
-
     @Resource
     private TypeMapper typeMapper;
 

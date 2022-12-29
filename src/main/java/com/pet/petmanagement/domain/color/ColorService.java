@@ -10,13 +10,9 @@ public class ColorService {
     @Resource
     private ColorRepository colorRepository;
 
-    public Color findColorBy(Integer colorId) {
-       return colorRepository.findById(colorId).get();
-    }
     public List<Color> findAllColors() {
        return colorRepository.findAll();
     }
-
     public Color findColorByName(String colorName) {
         return colorRepository.findByName(colorName);
     }

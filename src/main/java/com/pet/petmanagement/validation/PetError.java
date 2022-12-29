@@ -20,7 +20,6 @@ public enum PetError {
 
     PetError(String message, String errorCode) {
         this.message = message;
-
         this.errorCode = errorCode;
     }
 

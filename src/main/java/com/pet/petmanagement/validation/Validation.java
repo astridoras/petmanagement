@@ -14,7 +14,6 @@ public class Validation {
                     PetError.INCORRECT_CREDENTIALS.getErrorCode());
         }
     }
-
     public static void validateCreatePetJson(CreatePetJson json) {
         if (json.getPetName() == null || json.getPetName().isEmpty()) {
             throw new BusinessException(

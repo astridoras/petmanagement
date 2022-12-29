@@ -15,9 +15,8 @@ public class UserService {
     public User getExistingUser(String username, String password) {
         Optional<User> userOptional = userRepository.findBy(username, password);
         Validation.validateUserCredentials(userOptional);
-        User user = userOptional.get();
 
-        return user;
+        return userOptional.get();
 
     }
 
