@@ -1,8 +1,9 @@
 package com.pet.petmanagement.business.pet;
 
+import com.pet.petmanagement.business.pet.json.CreatePetJson;
+import com.pet.petmanagement.business.pet.json.PetResponseJson;
 import com.pet.petmanagement.domain.pet.Pet;
 import com.pet.petmanagement.domain.pet.PetMapper;
-import com.pet.petmanagement.domain.pet.PetResponseJson;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,8 +11,6 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
-//TODO solve CORS this is temp solution!
-@CrossOrigin(maxAge = 3600)
 
 @RestController
 @RequestMapping("/")
