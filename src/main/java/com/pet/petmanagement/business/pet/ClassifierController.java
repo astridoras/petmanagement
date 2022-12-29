@@ -12,11 +12,13 @@ import com.pet.petmanagement.domain.type.Type;
 import com.pet.petmanagement.domain.type.TypeJson;
 import com.pet.petmanagement.domain.type.TypeMapper;
 import com.pet.petmanagement.domain.type.TypeService;
-import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-
 
 
 @RestController
@@ -39,18 +41,21 @@ public class ClassifierController {
     private TypeMapper typeMapper;
 
     @GetMapping("countries")
+    @Operation(summary = "Displays all country options")
     public List<CountryJson> getAllCountries() {
         List<Country> countries = countryService.findAllCountries();
         return countryMapper.countriesToCountryJson(countries);
     }
 
     @GetMapping("types")
+    @Operation(summary = "Displays all pet type options")
     public List<TypeJson> getAllTypes() {
         List<Type> types = typeService.findAllTypes();
-       return typeMapper.typesToTypeJson(types);
+        return typeMapper.typesToTypeJson(types);
     }
 
     @GetMapping("colors")
+    @Operation(summary = "Displays all pet fur color options")
     public List<ColorJson> getAllColors() {
         List<Color> colors = colorService.findAllColors();
         return colorMapper.colorsToColorJson(colors);
