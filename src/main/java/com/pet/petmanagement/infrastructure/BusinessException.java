@@ -1,4 +1,4 @@
-package com.pet.petmanagement.infrastructure.exception;
+package com.pet.petmanagement.infrastructure;
 
 import lombok.Data;
 

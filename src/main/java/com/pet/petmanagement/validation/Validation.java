@@ -2,7 +2,7 @@ package com.pet.petmanagement.validation;
 
 import com.pet.petmanagement.business.pet.json.CreatePetJson;
 import com.pet.petmanagement.domain.user.User;
-import com.pet.petmanagement.infrastructure.exception.BusinessException;
+import com.pet.petmanagement.infrastructure.BusinessException;
 
 import java.util.Optional;
 

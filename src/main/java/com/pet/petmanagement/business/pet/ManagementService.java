@@ -12,7 +12,7 @@ import com.pet.petmanagement.domain.type.Type;
 import com.pet.petmanagement.domain.type.TypeService;
 import com.pet.petmanagement.domain.user.User;
 import com.pet.petmanagement.domain.user.UserService;
-import com.pet.petmanagement.infrastructure.exception.BusinessException;
+import com.pet.petmanagement.infrastructure.BusinessException;
 import com.pet.petmanagement.validation.PetError;
 import com.pet.petmanagement.validation.Validation;
 import org.springframework.stereotype.Service;
