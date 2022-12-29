@@ -2,7 +2,7 @@ package com.pet.petmanagement;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.pet.petmanagement.business.pet.CreatePetJson;
+import com.pet.petmanagement.business.pet.json.CreatePetJson;
 import com.pet.petmanagement.business.pet.ManagementService;
 import com.pet.petmanagement.domain.pet.Pet;
 import org.junit.jupiter.api.Test;
