@@ -22,7 +22,7 @@ export class AddPetComponent implements OnInit {
 
   petForm = this.formBuilder.group({
     petName: ['', Validators.required],
-    petCode: ['', [Validators.required, Validators.minLength(5)]],
+    petCode: ['', [Validators.required, Validators.minLength(6)]],
     type: ['', Validators.required],
     color: ['', Validators.required],
     country: ['',Validators.required],
