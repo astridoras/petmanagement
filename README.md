@@ -27,7 +27,7 @@ Run gradle bootRun from the project root in CLI or run src/test/java/com/pet/pet
   http://localhost:8080/
 * The Swagger UI is available at: http://localhost:8080/swagger-ui/index.html#/
 
-## Running H2 database:
+## Accessing H2 database console:
 * H2 Console is available at http://localhost:8080/h2-console/login.jsp?jsessionid=bd681a88a5875b986a8552c5cd951262
 * Driver Class: org.h2.Driver
 * JDBC URL: jdbc:h2:mem:pet_management_db
@@ -46,5 +46,5 @@ Tests are located src/test/java/com/pet/petmanagement/ManagementServiceIntegrati
 * FE error handling
 * User password in DB should be hashed (now displayed as entered)
 * More tests for back-end
-* Tests for front-end 
+* Tests for front-end need to fixed
 * Add method that validates that pets with same type and code can not be added to avoid same pet adding
